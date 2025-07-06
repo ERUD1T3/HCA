@@ -3,6 +3,7 @@ This repository contains the original pytorch code for our paper "Deep Imbalance
 
 
 # How to use
+- prepare the environment with packages include PyTorch, tensorboard_logger, numpy, pandas, scipy, tqdm, matplotlib, PIL, wget;
 - download the imdb-wiki data by running python "imdbwiki_data/download_imdb_wiki.py";
 - download the model in this [link](link) and unzip it in the folder;
 - run the code with "python main.py";
