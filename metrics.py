@@ -156,7 +156,27 @@ def evaluate_mae(
     
     # Make predictions
     with torch.no_grad():
-        _, predictions = model(X_test_tensor)
+        model_output = model(X_test_tensor)
+        
+        # Handle different model output types
+        if isinstance(model_output, dict):
+            # Hierarchical classification mode - use main classifier
+            if 'x' in model_output:
+                predictions = model_output['x']
+                # Convert class predictions to continuous values
+                if hasattr(model, 'module'):
+                    predictions = model.module.Class2Count(predictions)
+                else:
+                    predictions = model.Class2Count(predictions)
+            else:
+                raise ValueError("No main classifier output 'x' found in model predictions")
+        elif isinstance(model_output, tuple):
+            # Legacy tuple format (_, predictions)
+            _, predictions = model_output
+        else:
+            # Direct tensor output
+            predictions = model_output
+            
         predictions = predictions.cpu().numpy()
 
     # Process predictions
@@ -226,7 +246,27 @@ def evaluate_pcc(
     
     # Make predictions
     with torch.no_grad():
-        _, predictions = model(X_test_tensor)
+        model_output = model(X_test_tensor)
+        
+        # Handle different model output types
+        if isinstance(model_output, dict):
+            # Hierarchical classification mode - use main classifier
+            if 'x' in model_output:
+                predictions = model_output['x']
+                # Convert class predictions to continuous values
+                if hasattr(model, 'module'):
+                    predictions = model.module.Class2Count(predictions)
+                else:
+                    predictions = model.Class2Count(predictions)
+            else:
+                raise ValueError("No main classifier output 'x' found in model predictions")
+        elif isinstance(model_output, tuple):
+            # Legacy tuple format (_, predictions)
+            _, predictions = model_output
+        else:
+            # Direct tensor output
+            predictions = model_output
+            
         predictions = predictions.cpu().numpy()
 
     # Process predictions
