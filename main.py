@@ -77,7 +77,7 @@ parser.add_argument('--reweight', type=str, default='sqrt_inv', choices=['none',
 parser.add_argument('--batch_size', type=int, default=64, help='batch size')
 parser.add_argument('--print_freq', type=int, default=10, help='logging frequency')
 parser.add_argument('--workers', type=int, default=4, help='number of workers used in data loading')
-parser.add_argument('--seed', type=int, default=42, help='random seed for reproducibility')
+parser.add_argument('--seeds', type=int, nargs='+', default=[42], help='list of random seeds for multiple trials')
 
 # Model and checkpoint parameters  
 parser.add_argument('--resume', type=str, default='', help='checkpoint file path to resume training')
@@ -97,44 +97,32 @@ args, unknown = parser.parse_known_args()
 args.start_epoch, args.best_loss = 0, 1e5
 
 
-def main() -> None:
-    """Main evaluation function for hierarchical classification on tabular data.
+def run_trial(trial_seed: int) -> Dict[str, Any]:
+    """Run a single evaluation trial with the given seed.
     
-    This function:
-    1. Sets up logging and loads tabular data using TabDS
-    2. Creates hierarchical class boundaries using level_split on continuous targets
-    3. Initializes the multi-head MLP model
-    4. Loads pre-trained weights if specified
-    5. Evaluates the model on the test set with multiple metrics
+    Args:
+        trial_seed: Random seed for this trial
+        
+    Returns:
+        Dictionary containing evaluation results for this trial
     """
     # Set seed for reproducibility
-    set_seed(args.seed)
-    
-    # Setup logging
-    if not os.path.exists(args.log_dir):
-        os.makedirs(args.log_dir)
-    logging.root.handlers = []
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s | %(message)s",
-        handlers=[
-            logging.FileHandler(os.path.join(args.log_dir, args.log_name)),
-            logging.StreamHandler()
-        ])
-    print = logging.info
-    print(f"Args: {args}")
+    set_seed(trial_seed)
+    print(f"\n{'='*60}")
+    print(f"Running trial with seed: {trial_seed}")
+    print(f"{'='*60}")
     
     # Load tabular data
     print('=====> Preparing data...')
     try:
         X_train, y_train, X_val, y_val, X_test, y_test = load_tabular_splits(
             args.dataset, args.data_dir, args.train_split_name,
-            args.val_split_name, args.test_split_name, args.seed
+            args.val_split_name, args.test_split_name, trial_seed
         )
         print(f"Data loaded. Train: {X_train.shape}/{y_train.shape}, Val: {X_val.shape}/{y_val.shape}, Test: {X_test.shape}/{y_test.shape}")
     except (ValueError, FileNotFoundError) as e:
         print(f"Error loading data: {e}")
-        return
+        return {}
 
     # Get input dimension and target range for hierarchical setup
     input_dim = X_train.shape[1]
@@ -261,7 +249,80 @@ def main() -> None:
     
     # Evaluate model
     print("Now testing on the test set")
-    validate(test_loader, model, train_labels=y_train, X_train=X_train, prefix='Test')
+    results = validate(test_loader, model, train_labels=y_train, X_train=X_train, prefix=f'Test-Seed{trial_seed}')
+    results['seed'] = trial_seed
+    return results
+
+
+def main() -> None:
+    """Main function that coordinates multiple evaluation trials.
+    
+    This function:
+    1. Sets up logging 
+    2. Runs evaluation trials for each specified seed
+    3. Aggregates and reports results across all trials
+    """
+    # Setup logging
+    if not os.path.exists(args.log_dir):
+        os.makedirs(args.log_dir)
+    logging.root.handlers = []
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s | %(message)s",
+        handlers=[
+            logging.FileHandler(os.path.join(args.log_dir, args.log_name)),
+            logging.StreamHandler()
+        ])
+    print = logging.info
+    print(f"Args: {args}")
+    print(f"Running HCA evaluation on {args.dataset} dataset with {len(args.seeds)} seeds: {args.seeds}")
+    
+    # Run trials for each seed
+    all_results = []
+    
+    for seed in args.seeds:
+        try:
+            results = run_trial(seed)
+            if results:  # Only add if results are not empty
+                all_results.append(results)
+                print(f"\nSeed {seed} completed successfully")
+            else:
+                print(f"\nSeed {seed} failed")
+        except Exception as e:
+            print(f"\nSeed {seed} failed with error: {e}")
+            import traceback
+            traceback.print_exc()
+    
+    # Aggregate results across all seeds
+    if all_results:
+        print(f"\n{'='*80}")
+        print(f"FINAL RESULTS SUMMARY ACROSS {len(all_results)} SUCCESSFUL TRIALS")
+        print(f"{'='*80}")
+        
+        # Get all metric names (excluding 'seed')
+        metric_names = [key for key in all_results[0].keys() if key != 'seed']
+        
+        # Compute statistics across seeds for each metric
+        for metric_name in metric_names:
+            values = [result[metric_name] for result in all_results if metric_name in result]
+            
+            if values:
+                mean_val = np.mean(values)
+                std_val = np.std(values)
+                min_val = np.min(values)
+                max_val = np.max(values)
+                
+                print(f"{metric_name}:")
+                print(f"  Mean ± Std: {mean_val:.4f} ± {std_val:.4f}")
+                print(f"  Range: [{min_val:.4f}, {max_val:.4f}]")
+        
+        print(f"\nSuccessful seeds: {[result['seed'] for result in all_results]}")
+        if len(all_results) < len(args.seeds):
+            failed_seeds = [seed for seed in args.seeds if seed not in [result['seed'] for result in all_results]]
+            print(f"Failed seeds: {failed_seeds}")
+    else:
+        print("\nNo successful trials completed!")
+    
     return
 
 

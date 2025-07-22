@@ -52,7 +52,7 @@ echo "Using Hierarchical Classification with ${HEAD_NUM} heads"
 echo "FC layers in heads: ${FC_LNUM}, Adjustment head layers: ${S2FC_LNUM}"
 echo "=================================="
 
-srun python train.py \
+srun python main.py \
     --seeds ${SEEDS} \
     --data_dir ${DATA_DIR} \
     --dataset ${DATASET} \
@@ -80,6 +80,4 @@ fi
 echo "Training finished for seeds: ${SEEDS} at date $(date)"
 
 # Usage:
-# 1. To enable FDS: set FDS_FLAG="--fds --fds_kernel gaussian --fds_ks 5 --fds_sigma 1.0"
-# 2. To enable LDS: set LDS_FLAG="--lds --lds_kernel gaussian --lds_ks 5 --lds_sigma 1.0"
-# 3. Run: sbatch aip_scripts/run_sep_hca_aip.sh 
+# 1. Run: sbatch aip_scripts/run_sep_hca_aip.sh 
