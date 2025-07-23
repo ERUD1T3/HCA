@@ -1,0 +1,248 @@
+2025-07-22 14:58:05,377 | Args: Namespace(dataset='sep', data_dir='/home1/jmoukpe2016/BalancedMSE/neurips2025/data', train_split_name='training', val_split_name='validation', test_split_name='testing', model='mlp', mlp_hiddens=[512, 32, 256, 32, 128, 32, 64, 32], mlp_embed_dim=32, mlp_skip_layers=1, mlp_skip_repr=True, mlp_dropout=0.5, lds=False, lds_kernel='gaussian', lds_ks=5, lds_sigma=1, fds=False, fds_kernel='gaussian', fds_ks=5, fds_sigma=1, start_update=0, start_smooth=1, bucket_num=100, bucket_start=0, fds_mmt=0.9, reweight='sqrt_inv', batch_size=200, print_freq=10, workers=4, seeds=[456789, 42, 123, 0, 9999], resume='', log_dir='analy_log', log_name='hca_test.log', head_num=6, fc_lnum=1, s2fc_lnum=2, head_detach=True, gpu=None, start_epoch=0, best_loss=100000.0)
+2025-07-22 14:58:05,378 | Running HCA evaluation on sep dataset with 5 seeds: [456789, 42, 123, 0, 9999]
+2025-07-22 14:58:05,422 | Loading 'sep' - 'train' (training)...
+2025-07-22 14:58:05,424 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 14:58:05,486 | Data shuffled with random_state=456789
+2025-07-22 14:58:05,486 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 14:58:05,486 | X shape: (1149, 22), y shape: (1149,)
+2025-07-22 14:58:05,486 |   Loaded shapes: X=(1149, 22), y=(1149,)
+2025-07-22 14:58:05,486 | Loading 'sep' - 'val' (validation)...
+2025-07-22 14:58:05,487 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 14:58:05,509 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 14:58:05,510 | X shape: (383, 22), y shape: (383,)
+2025-07-22 14:58:05,510 |   Loaded shapes: X=(383, 22), y=(383,)
+2025-07-22 14:58:05,510 | Loading 'sep' - 'test' (testing)...
+2025-07-22 14:58:05,510 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 14:58:05,545 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 14:58:05,545 | X shape: (766, 22), y shape: (766,)
+2025-07-22 14:58:05,545 |   Loaded shapes: X=(766, 22), y=(766,)
+2025-07-22 14:58:07,441 | Test-Seed456789: [0/4]	Time  0.524 ( 0.524)	Loss (MSE) 83.227 (83.227)	Loss (L1) 9.121 (9.121)
+2025-07-22 14:58:07,523 | 
+Seed 456789 completed successfully
+2025-07-22 14:58:07,524 | Loading 'sep' - 'train' (training)...
+2025-07-22 14:58:07,524 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 14:58:07,532 | Data shuffled with random_state=42
+2025-07-22 14:58:07,532 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 14:58:07,532 | X shape: (1149, 22), y shape: (1149,)
+2025-07-22 14:58:07,533 |   Loaded shapes: X=(1149, 22), y=(1149,)
+2025-07-22 14:58:07,533 | Loading 'sep' - 'val' (validation)...
+2025-07-22 14:58:07,533 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 14:58:07,536 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 14:58:07,537 | X shape: (383, 22), y shape: (383,)
+2025-07-22 14:58:07,537 |   Loaded shapes: X=(383, 22), y=(383,)
+2025-07-22 14:58:07,537 | Loading 'sep' - 'test' (testing)...
+2025-07-22 14:58:07,537 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 14:58:07,544 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 14:58:07,544 | X shape: (766, 22), y shape: (766,)
+2025-07-22 14:58:07,544 |   Loaded shapes: X=(766, 22), y=(766,)
+2025-07-22 14:58:07,626 | Test-Seed42: [0/4]	Time  0.075 ( 0.075)	Loss (MSE) 41.945 (41.945)	Loss (L1) 6.477 (6.477)
+2025-07-22 14:58:07,709 | 
+Seed 42 completed successfully
+2025-07-22 14:58:07,709 | Loading 'sep' - 'train' (training)...
+2025-07-22 14:58:07,709 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 14:58:07,718 | Data shuffled with random_state=123
+2025-07-22 14:58:07,718 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 14:58:07,718 | X shape: (1149, 22), y shape: (1149,)
+2025-07-22 14:58:07,718 |   Loaded shapes: X=(1149, 22), y=(1149,)
+2025-07-22 14:58:07,718 | Loading 'sep' - 'val' (validation)...
+2025-07-22 14:58:07,718 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 14:58:07,722 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 14:58:07,722 | X shape: (383, 22), y shape: (383,)
+2025-07-22 14:58:07,722 |   Loaded shapes: X=(383, 22), y=(383,)
+2025-07-22 14:58:07,722 | Loading 'sep' - 'test' (testing)...
+2025-07-22 14:58:07,722 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 14:58:07,729 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 14:58:07,729 | X shape: (766, 22), y shape: (766,)
+2025-07-22 14:58:07,729 |   Loaded shapes: X=(766, 22), y=(766,)
+2025-07-22 14:58:07,819 | Test-Seed123: [0/4]	Time  0.083 ( 0.083)	Loss (MSE) 1.003 (1.003)	Loss (L1) 0.619 (0.619)
+2025-07-22 14:58:07,898 | 
+Seed 123 completed successfully
+2025-07-22 14:58:07,899 | Loading 'sep' - 'train' (training)...
+2025-07-22 14:58:07,899 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 14:58:07,907 | Data shuffled with random_state=0
+2025-07-22 14:58:07,907 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 14:58:07,907 | X shape: (1149, 22), y shape: (1149,)
+2025-07-22 14:58:07,907 |   Loaded shapes: X=(1149, 22), y=(1149,)
+2025-07-22 14:58:07,907 | Loading 'sep' - 'val' (validation)...
+2025-07-22 14:58:07,907 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 14:58:07,910 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 14:58:07,911 | X shape: (383, 22), y shape: (383,)
+2025-07-22 14:58:07,911 |   Loaded shapes: X=(383, 22), y=(383,)
+2025-07-22 14:58:07,911 | Loading 'sep' - 'test' (testing)...
+2025-07-22 14:58:07,911 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 14:58:07,917 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 14:58:07,917 | X shape: (766, 22), y shape: (766,)
+2025-07-22 14:58:07,917 |   Loaded shapes: X=(766, 22), y=(766,)
+2025-07-22 14:58:08,007 | Test-Seed0: [0/4]	Time  0.082 ( 0.082)	Loss (MSE) 0.884 (0.884)	Loss (L1) 0.940 (0.940)
+2025-07-22 14:58:08,089 | 
+Seed 0 completed successfully
+2025-07-22 14:58:08,089 | Loading 'sep' - 'train' (training)...
+2025-07-22 14:58:08,090 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 14:58:08,098 | Data shuffled with random_state=9999
+2025-07-22 14:58:08,098 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 14:58:08,098 | X shape: (1149, 22), y shape: (1149,)
+2025-07-22 14:58:08,098 |   Loaded shapes: X=(1149, 22), y=(1149,)
+2025-07-22 14:58:08,098 | Loading 'sep' - 'val' (validation)...
+2025-07-22 14:58:08,098 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 14:58:08,102 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 14:58:08,102 | X shape: (383, 22), y shape: (383,)
+2025-07-22 14:58:08,102 |   Loaded shapes: X=(383, 22), y=(383,)
+2025-07-22 14:58:08,102 | Loading 'sep' - 'test' (testing)...
+2025-07-22 14:58:08,102 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 14:58:08,108 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 14:58:08,108 | X shape: (766, 22), y shape: (766,)
+2025-07-22 14:58:08,108 |   Loaded shapes: X=(766, 22), y=(766,)
+2025-07-22 14:58:08,200 | Test-Seed9999: [0/4]	Time  0.085 ( 0.085)	Loss (MSE) 37.318 (37.318)	Loss (L1) 5.954 (5.954)
+2025-07-22 14:58:08,283 | 
+Seed 9999 completed successfully
+2025-07-22 14:58:08,283 | 
+================================================================================
+2025-07-22 14:58:08,283 | FINAL RESULTS SUMMARY ACROSS 5 SUCCESSFUL TRIALS
+2025-07-22 14:58:08,283 | ================================================================================
+2025-07-22 14:58:08,283 | overall_mse:
+2025-07-22 14:58:08,283 |   Mean ± Std: 35.0812 ± 21.6001
+2025-07-22 14:58:08,283 |   Range: [12.4156, 72.5774]
+2025-07-22 14:58:08,284 | overall_mae:
+2025-07-22 14:58:08,284 |   Mean ± Std: 4.9615 ± 2.2514
+2025-07-22 14:58:08,284 |   Range: [2.4930, 8.4169]
+2025-07-22 14:58:08,284 | 
+Successful seeds: [456789, 42, 123, 0, 9999]
+2025-07-22 15:13:08,369 | Args: Namespace(dataset='sep', data_dir='/home1/jmoukpe2016/BalancedMSE/neurips2025/data', train_split_name='training', val_split_name='validation', test_split_name='testing', model='mlp', mlp_hiddens=[512, 32, 256, 32, 128, 32, 64, 32], mlp_embed_dim=32, mlp_skip_layers=1, mlp_skip_repr=True, mlp_dropout=0.5, lds=False, lds_kernel='gaussian', lds_ks=5, lds_sigma=1, fds=False, fds_kernel='gaussian', fds_ks=5, fds_sigma=1, start_update=0, start_smooth=1, bucket_num=100, bucket_start=0, fds_mmt=0.9, reweight='sqrt_inv', batch_size=200, print_freq=10, workers=4, seeds=[456789, 42, 123, 0, 9999], resume='', log_dir='analy_log', log_name='hca_test.log', head_num=6, fc_lnum=1, s2fc_lnum=2, head_detach=True, gpu=None, start_epoch=0, best_loss=100000.0)
+2025-07-22 15:13:08,369 | Running HCA evaluation on sep dataset with 5 seeds: [456789, 42, 123, 0, 9999]
+2025-07-22 15:13:08,371 | Loading 'sep' - 'train' (training)...
+2025-07-22 15:13:08,372 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 15:13:08,379 | Data shuffled with random_state=456789
+2025-07-22 15:13:08,379 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 15:13:08,379 | X shape: (1149, 22), y shape: (1149,)
+2025-07-22 15:13:08,379 |   Loaded shapes: X=(1149, 22), y=(1149,)
+2025-07-22 15:13:08,379 | Loading 'sep' - 'val' (validation)...
+2025-07-22 15:13:08,380 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 15:13:08,383 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 15:13:08,383 | X shape: (383, 22), y shape: (383,)
+2025-07-22 15:13:08,383 |   Loaded shapes: X=(383, 22), y=(383,)
+2025-07-22 15:13:08,383 | Loading 'sep' - 'test' (testing)...
+2025-07-22 15:13:08,383 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 15:13:08,388 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 15:13:08,388 | X shape: (766, 22), y shape: (766,)
+2025-07-22 15:13:08,388 |   Loaded shapes: X=(766, 22), y=(766,)
+2025-07-22 15:13:09,216 | Test-Seed456789: [0/4]	Time  0.173 ( 0.173)	Loss (MSE) 83.227 (83.227)	Loss (L1) 9.121 (9.121)
+2025-07-22 15:13:09,400 | 
+Seed 456789 completed successfully
+2025-07-22 15:13:09,401 | Loading 'sep' - 'train' (training)...
+2025-07-22 15:13:09,401 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 15:13:09,410 | Data shuffled with random_state=42
+2025-07-22 15:13:09,410 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 15:13:09,410 | X shape: (1149, 22), y shape: (1149,)
+2025-07-22 15:13:09,410 |   Loaded shapes: X=(1149, 22), y=(1149,)
+2025-07-22 15:13:09,410 | Loading 'sep' - 'val' (validation)...
+2025-07-22 15:13:09,410 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 15:13:09,412 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 15:13:09,412 | X shape: (383, 22), y shape: (383,)
+2025-07-22 15:13:09,412 |   Loaded shapes: X=(383, 22), y=(383,)
+2025-07-22 15:13:09,412 | Loading 'sep' - 'test' (testing)...
+2025-07-22 15:13:09,413 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 15:13:09,418 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 15:13:09,418 | X shape: (766, 22), y shape: (766,)
+2025-07-22 15:13:09,418 |   Loaded shapes: X=(766, 22), y=(766,)
+2025-07-22 15:13:09,503 | Test-Seed42: [0/4]	Time  0.078 ( 0.078)	Loss (MSE) 41.945 (41.945)	Loss (L1) 6.477 (6.477)
+2025-07-22 15:13:09,689 | 
+Seed 42 completed successfully
+2025-07-22 15:13:09,689 | Loading 'sep' - 'train' (training)...
+2025-07-22 15:13:09,690 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 15:13:09,697 | Data shuffled with random_state=123
+2025-07-22 15:13:09,697 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 15:13:09,697 | X shape: (1149, 22), y shape: (1149,)
+2025-07-22 15:13:09,697 |   Loaded shapes: X=(1149, 22), y=(1149,)
+2025-07-22 15:13:09,697 | Loading 'sep' - 'val' (validation)...
+2025-07-22 15:13:09,697 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 15:13:09,700 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 15:13:09,700 | X shape: (383, 22), y shape: (383,)
+2025-07-22 15:13:09,700 |   Loaded shapes: X=(383, 22), y=(383,)
+2025-07-22 15:13:09,700 | Loading 'sep' - 'test' (testing)...
+2025-07-22 15:13:09,700 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 15:13:09,705 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 15:13:09,705 | X shape: (766, 22), y shape: (766,)
+2025-07-22 15:13:09,705 |   Loaded shapes: X=(766, 22), y=(766,)
+2025-07-22 15:13:09,792 | Test-Seed123: [0/4]	Time  0.079 ( 0.079)	Loss (MSE) 1.003 (1.003)	Loss (L1) 0.619 (0.619)
+2025-07-22 15:13:09,983 | 
+Seed 123 completed successfully
+2025-07-22 15:13:09,984 | Loading 'sep' - 'train' (training)...
+2025-07-22 15:13:09,984 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 15:13:09,991 | Data shuffled with random_state=0
+2025-07-22 15:13:09,991 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 15:13:09,991 | X shape: (1149, 22), y shape: (1149,)
+2025-07-22 15:13:09,991 |   Loaded shapes: X=(1149, 22), y=(1149,)
+2025-07-22 15:13:09,991 | Loading 'sep' - 'val' (validation)...
+2025-07-22 15:13:09,991 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 15:13:09,993 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 15:13:09,993 | X shape: (383, 22), y shape: (383,)
+2025-07-22 15:13:09,993 |   Loaded shapes: X=(383, 22), y=(383,)
+2025-07-22 15:13:09,993 | Loading 'sep' - 'test' (testing)...
+2025-07-22 15:13:09,994 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 15:13:09,998 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 15:13:09,998 | X shape: (766, 22), y shape: (766,)
+2025-07-22 15:13:09,998 |   Loaded shapes: X=(766, 22), y=(766,)
+2025-07-22 15:13:10,088 | Test-Seed0: [0/4]	Time  0.082 ( 0.082)	Loss (MSE) 0.884 (0.884)	Loss (L1) 0.940 (0.940)
+2025-07-22 15:13:10,279 | 
+Seed 0 completed successfully
+2025-07-22 15:13:10,279 | Loading 'sep' - 'train' (training)...
+2025-07-22 15:13:10,279 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 15:13:10,287 | Data shuffled with random_state=9999
+2025-07-22 15:13:10,287 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_training.csv
+2025-07-22 15:13:10,287 | X shape: (1149, 22), y shape: (1149,)
+2025-07-22 15:13:10,287 |   Loaded shapes: X=(1149, 22), y=(1149,)
+2025-07-22 15:13:10,287 | Loading 'sep' - 'val' (validation)...
+2025-07-22 15:13:10,287 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 15:13:10,290 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_validation.csv
+2025-07-22 15:13:10,290 | X shape: (383, 22), y shape: (383,)
+2025-07-22 15:13:10,290 |   Loaded shapes: X=(383, 22), y=(383,)
+2025-07-22 15:13:10,290 | Loading 'sep' - 'test' (testing)...
+2025-07-22 15:13:10,290 |   Loading from file: /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 15:13:10,295 | Dataset built from /home1/jmoukpe2016/BalancedMSE/neurips2025/data/sep/sep_testing.csv
+2025-07-22 15:13:10,295 | X shape: (766, 22), y shape: (766,)
+2025-07-22 15:13:10,295 |   Loaded shapes: X=(766, 22), y=(766,)
+2025-07-22 15:13:10,388 | Test-Seed9999: [0/4]	Time  0.086 ( 0.086)	Loss (MSE) 37.318 (37.318)	Loss (L1) 5.954 (5.954)
+2025-07-22 15:13:10,569 | 
+Seed 9999 completed successfully
+2025-07-22 15:13:10,569 | 
+================================================================================
+2025-07-22 15:13:10,570 | FINAL RESULTS SUMMARY ACROSS 5 SUCCESSFUL TRIALS
+2025-07-22 15:13:10,570 | ================================================================================
+2025-07-22 15:13:10,570 | overall_mse:
+2025-07-22 15:13:10,570 |   Mean ± Std: 35.0812 ± 21.6001
+2025-07-22 15:13:10,570 |   Range: [12.4156, 72.5774]
+2025-07-22 15:13:10,570 | overall_mae:
+2025-07-22 15:13:10,570 |   Mean ± Std: 4.9615 ± 2.2514
+2025-07-22 15:13:10,570 |   Range: [2.4930, 8.4169]
+2025-07-22 15:13:10,570 | mae:
+2025-07-22 15:13:10,570 |   Mean ± Std: 4.2354 ± 3.3320
+2025-07-22 15:13:10,570 |   Range: [0.1655, 8.9333]
+2025-07-22 15:13:10,570 | pcc:
+2025-07-22 15:13:10,570 |   Mean ± Std: nan ± nan
+2025-07-22 15:13:10,570 |   Range: [nan, nan]
+2025-07-22 15:13:10,571 | train_mae:
+2025-07-22 15:13:10,571 |   Mean ± Std: 5.6591 ± 3.0969
+2025-07-22 15:13:10,571 |   Range: [0.1694, 9.6394]
+2025-07-22 15:13:10,571 | train_pcc:
+2025-07-22 15:13:10,571 |   Mean ± Std: nan ± nan
+2025-07-22 15:13:10,571 |   Range: [nan, nan]
+2025-07-22 15:13:10,571 | mae+:
+2025-07-22 15:13:10,571 |   Mean ± Std: 3.3410 ± 1.2983
+2025-07-22 15:13:10,571 |   Range: [1.2592, 5.0774]
+2025-07-22 15:13:10,571 | pcc+:
+2025-07-22 15:13:10,571 |   Mean ± Std: nan ± nan
+2025-07-22 15:13:10,571 |   Range: [nan, nan]
+2025-07-22 15:13:10,571 | train_mae+:
+2025-07-22 15:13:10,571 |   Mean ± Std: 3.3574 ± 1.4669
+2025-07-22 15:13:10,571 |   Range: [1.5923, 5.0811]
+2025-07-22 15:13:10,571 | train_pcc+:
+2025-07-22 15:13:10,572 |   Mean ± Std: nan ± nan
+2025-07-22 15:13:10,572 |   Range: [nan, nan]
+2025-07-22 15:13:10,572 | avg_mae_maep:
+2025-07-22 15:13:10,572 |   Mean ± Std: 3.7882 ± 1.4758
+2025-07-22 15:13:10,572 |   Range: [1.5200, 6.0824]
+2025-07-22 15:13:10,572 | avg_pcc_pccp:
+2025-07-22 15:13:10,572 |   Mean ± Std: nan ± nan
+2025-07-22 15:13:10,572 |   Range: [nan, nan]
+2025-07-22 15:13:10,572 | 
+Successful seeds: [456789, 42, 123, 0, 9999]

@@ -17,7 +17,6 @@ from mlp import create_mlp
 from utils import *
 from mh_utils import level_split, get_mh_weight
 from scipy.stats import *
-from eval_metrics import shot_metrics_balanced
 
 # Import dataset-specific metrics
 from metrics import (
